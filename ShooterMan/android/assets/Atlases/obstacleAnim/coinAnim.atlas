@@ -1,0 +1,40 @@
+
+coinAnim.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Coin1
+  rotate: false
+  xy: 1, 1
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+Coin2
+  rotate: false
+  xy: 1, 1
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+Coin3
+  rotate: false
+  xy: 29, 1
+  size: 20, 26
+  orig: 20, 26
+  offset: 0, 0
+  index: -1
+Coin4
+  rotate: false
+  xy: 51, 1
+  size: 20, 26
+  orig: 20, 26
+  offset: 0, 0
+  index: -1
+Coin5
+  rotate: false
+  xy: 73, 1
+  size: 9, 26
+  orig: 9, 26
+  offset: 0, 0
+  index: -1

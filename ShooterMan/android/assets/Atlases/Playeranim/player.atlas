@@ -1,0 +1,33 @@
+
+player.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+S_oben
+  rotate: false
+  xy: 1, 1
+  size: 92, 64
+  orig: 92, 64
+  offset: 0, 0
+  index: 1
+S_oben
+  rotate: false
+  xy: 95, 1
+  size: 92, 64
+  orig: 92, 64
+  offset: 0, 0
+  index: 2
+S_unten
+  rotate: false
+  xy: 189, 1
+  size: 92, 64
+  orig: 92, 64
+  offset: 0, 0
+  index: 1
+S_unten
+  rotate: false
+  xy: 283, 1
+  size: 92, 64
+  orig: 92, 64
+  offset: 0, 0
+  index: 2
