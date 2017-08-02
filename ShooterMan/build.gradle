@@ -9,8 +9,9 @@ buildscript {
         classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'org.robovm:robovm-gradle-plugin:1.12.0'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+
     }
 }
 
@@ -54,6 +55,7 @@ project(":desktop") {
 project(":android") {
     apply plugin: "android"
     apply plugin: "kotlin-android"
+    apply plugin: 'me.tatarka.retrolambda'
     configurations { natives }
 
     dependencies {
@@ -116,7 +118,7 @@ project(":html") {
 project(":core") {
     apply plugin: "java"
     apply plugin: "kotlin"
-
+    apply plugin: "me.tatarka.retrolambda"
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
@@ -124,6 +126,7 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         compile "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
         compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+        compile 'com.annimon:stream:1.1.8'
     }
 }
 

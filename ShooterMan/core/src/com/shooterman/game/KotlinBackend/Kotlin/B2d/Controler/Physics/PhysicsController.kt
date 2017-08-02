@@ -11,7 +11,9 @@ class PhysicsController{
     companion object {
         @JvmField
         val world:World = World(Vector2(0f,4.81f),true)
-        fun initWorld() = world.setContactListener(WorldContact())
+        @JvmField
+        val worldContactListener:WorldContact = WorldContact()
+        fun initWorld() = world.setContactListener(worldContactListener)
 
     }
 

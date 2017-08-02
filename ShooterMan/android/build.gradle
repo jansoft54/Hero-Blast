@@ -21,6 +21,10 @@ android {
         minSdkVersion 8
         targetSdkVersion 25
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 

@@ -40,12 +40,12 @@ class AssetsManager private constructor(){
             manager.load("Atlases/Playeranim/player.atlas",TextureAtlas::class.java)
             manager.load("Atlases/Playeranim/playerhit.png",Texture::class.java)
 
-            manager.load("enviroment/fire1.png",Texture::class.java)
-            manager.load("enviroment/heart.png",Texture::class.java)
-            manager.load("enviroment/hitRect.png",Texture::class.java)
-            manager.load("enviroment/pauseblack.png",Texture::class.java)
-            manager.load("enviroment/toggle.png",Texture::class.java)
-            manager.load("enviroment/togglebackground.png",Texture::class.java)
+            manager.load("environment/fire1.png",Texture::class.java)
+            manager.load("environment/heart.png",Texture::class.java)
+            manager.load("environment/hitRect.png",Texture::class.java)
+            manager.load("environment/pauseblack.png",Texture::class.java)
+            manager.load("environment/toggle.png",Texture::class.java)
+            manager.load("environment/togglebackground.png",Texture::class.java)
 
             manager.load("Fonts/scorefont.fnt",BitmapFont::class.java)
             manager.load("Fonts/scorefont.png",Texture::class.java)

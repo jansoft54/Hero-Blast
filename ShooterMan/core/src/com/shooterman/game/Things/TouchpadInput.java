@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.shooterman.game.KotlinBackend.Kotlin.Assets.AssetsManager;
 import com.shooterman.game.Screens.PlayScreen;
 import com.shooterman.game.TextureHolder;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -27,8 +28,8 @@ public class TouchpadInput {
         this.ps = ps;
         skin = new Skin();
         touchpadStyle = new Touchpad.TouchpadStyle();
-        Texture background = new Texture(TextureHolder.touchpadbackground);
-        Texture pad = new Texture(TextureHolder.touchpad);
+        Texture background =AssetsManager.Manager.getManager().get("environment/togglebackground.png");
+        Texture pad = AssetsManager.Manager.getManager().get("environment/toggle.png");
 
         background.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         pad.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
