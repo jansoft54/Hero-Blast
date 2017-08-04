@@ -1,0 +1,19 @@
+
+super.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+S_oben
+  rotate: false
+  xy: 2, 2
+  size: 92, 64
+  orig: 92, 64
+  offset: 0, 0
+  index: 1
+S_oben
+  rotate: false
+  xy: 98, 2
+  size: 92, 64
+  orig: 92, 64
+  offset: 0, 0
+  index: 2
