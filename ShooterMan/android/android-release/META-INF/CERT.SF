@@ -1,0 +1,212 @@
+Signature-Version: 1.0
+X-Android-APK-Signed: 2
+SHA1-Digest-Manifest: pJ1EIqYQ0EyjCCQXc4m2RwyfYPA=
+Created-By: 1.0 (Android)
+
+Name: assets/Atlases/enemyShots/fireballlow.png
+SHA1-Digest: GecJqUj2jkjWx8yTYB1wd+v7GXA=
+
+Name: lib/x86_64/libgdx-freetype.so
+SHA1-Digest: IvFFf0F9grClAIdb9GLbBSFcH58=
+
+Name: assets/Atlases/buttonatlas/pauseButton.atlas
+SHA1-Digest: hb2DayjUQgaRnckic0csnkCodPY=
+
+Name: assets/Hit/playerHit.png
+SHA1-Digest: NqB8uPOCUKK7Xwl/lMLPQZ6JF1k=
+
+Name: assets/hs_err_pid11248.log
+SHA1-Digest: bmhDODm40mdDCW9uwwqNhR7kZOk=
+
+Name: assets/Atlases/buttonatlas/pauseButton.png
+SHA1-Digest: lgC8gOAaCWhdyik0gyTqYoh24W8=
+
+Name: assets/Parallax/layer-4.png
+SHA1-Digest: oMwBd5HIBygLR3hAsOQ9sE5i/AE=
+
+Name: assets/enviroment/toggle.png
+SHA1-Digest: AthixCb5k7HHn7zSYfIXivWFNq8=
+
+Name: res/drawable-mdpi-v4/ic_launcher.png
+SHA1-Digest: RRxOSvpmhVfCwiprVV/wZlaqQpw=
+
+Name: assets/Music/inGameMusic.mp3
+SHA1-Digest: nkvPMbUBXsDNG+jz6S2a2rJN2xo=
+
+Name: lib/armeabi/libgdx-box2d.so
+SHA1-Digest: iEKnaUJTp/2bOrxJ6Gn7B5rZhh0=
+
+Name: assets/Fonts/scorefont.png
+SHA1-Digest: f9MdTmp8gZIGiPlWeORWOvzgcYA=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/default.fragment.glsl
+SHA1-Digest: IIUjr+mcdXkUXEExKPM2/JawSZ0=
+
+Name: lib/armeabi-v7a/libgdx-box2d.so
+SHA1-Digest: 07rUMpsf52r2LHDRo5+whJz0n58=
+
+Name: com/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl
+SHA1-Digest: eSLUEuPaE9IQZeP3HzG65WUVb74=
+
+Name: assets/Fonts/scorefont.fnt
+SHA1-Digest: etzxaMv7tT0pE9lRXoPgfHLNTSI=
+
+Name: assets/Atlases/enemyShots/fireballlow.atlas
+SHA1-Digest: d3N3TQysnZswXXQaRW84wCvGEaI=
+
+Name: assets/enviroment/fire1.png
+SHA1-Digest: 8VnYz/3TU9UKmI7mrqBzOK2nUqw=
+
+Name: assets/Hit/bossHit.png
+SHA1-Digest: tA3spbjwvBz4LV+ybAqCeoEVNE8=
+
+Name: assets/Atlases/enemyAnimation/fireball.atlas
+SHA1-Digest: NnXrMCZwfoFejxZVYhal3NpmrwE=
+
+Name: assets/Atlases/enemyAnimation/dragon.atlas
+SHA1-Digest: SC4zklD8dETL2e1E5RJQKjsjDyM=
+
+Name: lib/armeabi-v7a/libgdx.so
+SHA1-Digest: LGkT2IbkyqClFiK4efQA1fEnne0=
+
+Name: assets/Parallax/layer-1.png
+SHA1-Digest: y0vfjPyk+SS1brUsmSf0ULt4W1o=
+
+Name: com/badlogic/gdx/utils/arial-15.fnt
+SHA1-Digest: lJMEBO6KXBGAB7uP2j2Odqe+ijQ=
+
+Name: lib/armeabi/libgdx.so
+SHA1-Digest: Pa6qm1H6O+KJlW/2Br6hVjEuOfQ=
+
+Name: com/badlogic/gdx/utils/arial-15.png
+SHA1-Digest: cNIREcVEJ4mg/sQa8fTMElWnwwo=
+
+Name: lib/x86_64/libgdx.so
+SHA1-Digest: WJkeG+QncaoEtKcFDhQgo2ax/Dk=
+
+Name: com/badlogic/gdx/graphics/g3d/particles/particles.vertex.glsl
+SHA1-Digest: 2usZue0Pm1SD2g4J+zRY7l2DHO8=
+
+Name: res/drawable-xhdpi-v4/ic_launcher.png
+SHA1-Digest: AfPh3OJoypH966MludSW6f1RHg4=
+
+Name: com/badlogic/gdx/physics/box2d.gwt.xml
+SHA1-Digest: KeA5gjiOxOPapnHCau0vTEwKmqM=
+
+Name: assets/Atlases/Playeranim/super.atlas
+SHA1-Digest: snOxZjqX7FLtMtX6sMu0cyM5/rE=
+
+Name: assets/Parallax/layer-2.png
+SHA1-Digest: ZAVuS7pXs4q9uis1bzqRVXApgfA=
+
+Name: lib/arm64-v8a/libgdx.so
+SHA1-Digest: 7h/DsP+b/HJ9oNNtDU577A23Ahw=
+
+Name: assets/enviroment/togglebackground.png
+SHA1-Digest: u/gLlxoyGGKvZq9hhKZ9GDxeqKw=
+
+Name: assets/Parallax/layer-3.png
+SHA1-Digest: ZT3grvsJ0st7PiW818V+HhuOUPg=
+
+Name: resources.arsc
+SHA1-Digest: flz2v2pvrH78btV448TMNDsqDrU=
+
+Name: assets/Music/coinSound.wav
+SHA1-Digest: DxVWxPSR72RGSQ+1svS/YjNAsfU=
+
+Name: assets/Hit/hitRect.png
+SHA1-Digest: O8M7zkXGtJ/w8z0sVeltQJat34c=
+
+Name: lib/armeabi-v7a/libgdx-freetype.so
+SHA1-Digest: qvwxPWm7fMvQsrYPgWxJWu5EMx8=
+
+Name: com/badlogic/gdx/utils/JsonReader.rl
+SHA1-Digest: mQ7dtOnNGsMyTcDa87I1nbk5yUE=
+
+Name: lib/x86/libgdx-box2d.so
+SHA1-Digest: 0JbiSqhHGFqdquJYHVHTC0Yt9F4=
+
+Name: lib/x86/libgdx-freetype.so
+SHA1-Digest: zNaAm3s0mKwbab3hDvLCZ4bk6OI=
+
+Name: AndroidManifest.xml
+SHA1-Digest: SCBi2e/WYvBKro6q6zgA7S+nZSQ=
+
+Name: assets/coins/coin.png
+SHA1-Digest: b2+G84Wd+Z2Mjzo7BuTmjFY6BOQ=
+
+Name: assets/Atlases/dirt.png
+SHA1-Digest: YPTVs9D4gUGb5MyuEglCqgwE5sg=
+
+Name: assets/enviroment/pauseblack.png
+SHA1-Digest: x0pi+hhNjXUjtuUeBK3ZImVHoZM=
+
+Name: assets/Atlases/enemyAnimation/dragon.png
+SHA1-Digest: Fy6CKeQkMLrQPFTM6NfD35nwBLo=
+
+Name: assets/Atlases/Playeranim/super.png
+SHA1-Digest: 9aD0XQc3IIPo4ti3wGeUje+50M8=
+
+Name: res/drawable-hdpi-v4/ic_launcher.png
+SHA1-Digest: Nq8q3HeTluE5JNCBpVvNy3BXtJI=
+
+Name: com/badlogic/gdx.gwt.xml
+SHA1-Digest: q+eagDzigzm3TIvUJMq7qgKdyaw=
+
+Name: com/badlogic/gdx/utils/XmlReader.rl
+SHA1-Digest: c6RepTyyUVFZoGqjdLXiIcOfIdo=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/depth.fragment.glsl
+SHA1-Digest: RPS515Fm1NTjmYxAmq5vzLZe594=
+
+Name: lib/x86_64/libgdx-box2d.so
+SHA1-Digest: XHUgSuErXsQ8/5svEEmoowYIhks=
+
+Name: assets/Atlases/enemyAnimation/dragonboss.png
+SHA1-Digest: yQsR1WEri2iBZ2KpBjEn88Pf4/A=
+
+Name: lib/x86/libgdx.so
+SHA1-Digest: QqlkZ+/cAsgU/HXPlQlHL888tE0=
+
+Name: res/drawable-xxhdpi-v4/ic_launcher.png
+SHA1-Digest: GVIfdEOBv4gEny2T1jDhGGsZOBo=
+
+Name: assets/Tutorial/arrow.png
+SHA1-Digest: XLc8/jgpNdK0ssnzAV1jsOy+leQ=
+
+Name: assets/Music/shootSound.wav
+SHA1-Digest: h+uRwR1QStN9QLVVzXBs2+DsQGw=
+
+Name: assets/Music/hitsound.wav
+SHA1-Digest: 17VRaOqD49TbrZcnzrSo+cS8xAQ=
+
+Name: lib/arm64-v8a/libgdx-box2d.so
+SHA1-Digest: F/qdhepgELu8WC8CjLFZRw+iGfg=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/default.vertex.glsl
+SHA1-Digest: D1+gSAodKHAP+xlaCIsnStMy+yg=
+
+Name: assets/Atlases/enemyAnimation/dragonboss.atlas
+SHA1-Digest: qmjDP11ZYa4IdDAqcQZxqeLMTqI=
+
+Name: lib/armeabi/libgdx-freetype.so
+SHA1-Digest: nv3wlc/b3sy6FHaH6DkYDLd+oBA=
+
+Name: assets/Atlases/dirt.atlas
+SHA1-Digest: zj8hSwiWs+PcdgMq8FOcsRHLOdY=
+
+Name: lib/arm64-v8a/libgdx-freetype.so
+SHA1-Digest: SlukITv3s4EFlTniLgRtV5geQks=
+
+Name: com/badlogic/gdx/graphics/g3d/shaders/depth.vertex.glsl
+SHA1-Digest: hv/gPfZsNJeCcsmsMKWmn5MJgJU=
+
+Name: assets/enviroment/heart.png
+SHA1-Digest: Cyjf47rzRjupI+JPtZ4KxUevgOo=
+
+Name: classes.dex
+SHA1-Digest: GhhA8ULP31QLR8+oDjPu95M8asg=
+
+Name: assets/Atlases/enemyAnimation/fireball.png
+SHA1-Digest: j0ybCsYqOoRoTMaT0d3dWgjDHfY=
+
