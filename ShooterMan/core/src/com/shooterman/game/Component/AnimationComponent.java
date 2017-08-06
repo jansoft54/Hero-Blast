@@ -2,6 +2,7 @@ package com.shooterman.game.Component;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
@@ -16,7 +17,7 @@ import java.util.Iterator;
 
 public final class AnimationComponent implements IComponent {
     private HashMap<String, Float> animationTimes = new HashMap<>();
-    private HashMap<String, Animation<Texture>> animations = new HashMap<>();
+    private HashMap<String, Animation<TextureRegion>> animations = new HashMap<>();
     private Entity myEnity;
     private RenderComponent renderComponent;
     private String animationActive;
@@ -26,17 +27,21 @@ public final class AnimationComponent implements IComponent {
         myEnity = entity;
         renderComponent = (RenderComponent) myEnity.getComponent(RenderComponent.class);
     }
-
-    public void addAnimation(String id, float duration, Animation.PlayMode playMode, Texture... textures) {
-        Animation animationtoAdd = new Animation<>(duration, textures);
+    /** This method is important for TextureRegion arrays e.g. for easily splitting up Textures
+     * The correct implementation will follow later*/
+/*
+    public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, TextureRegion... textures) {
+        Animation<Texture> animationtoAdd = new Animation<>(duration, textures);
         animationtoAdd.setPlayMode(playMode);
 
-        animations.put(id, animationtoAdd);
+        animations.put(id, new Animation<TextureRegion>(duration,textures,playMode));
         animationActive = id;
         animationTimes.put(id, 0f);
+        return this;
     }
+    */
 
-    public void addAnimation(String id, float duration, Animation.PlayMode playMode, Array<TextureAtlas.AtlasRegion> regions) {
+    public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, Array<TextureAtlas.AtlasRegion> regions) {
 
         Array<Texture> textures = new Array<>();
         /*extracting the regions out of the Array<TextureAtlas.AtlasRegion>*/
@@ -44,9 +49,10 @@ public final class AnimationComponent implements IComponent {
             textures.add(atlasRegion.getTexture());
         /*Setting the playmode directly, because Animation only supports the playmode
         in combination with an Array(class based) of the generic type paramter we specified above*/
-        animations.put(id, new Animation<>(duration, textures,playMode));
+        animations.put(id, new Animation<>(duration,regions,playMode));
         animationActive = id;
         animationTimes.put(id, 0f);
+        return this;
     }
 
     public void setAnimationActive(String active) {
@@ -55,15 +61,17 @@ public final class AnimationComponent implements IComponent {
 
     @Override
     public void update(float delta) {
-        for (Iterator iterator = animationTimes.entrySet().iterator(); iterator.hasNext(); )
             animationTimes.put(animationActive, (animationTimes.get(animationActive)) + delta);
+
+
         render();
 
     }
-
+    /* At the Moment the AniamtionComponent only supports LOOP Animations,Animations that only occur once are not supported yet*/
     private void render() {
-        renderComponent.draw(animations.get(animationActive).getKeyFrame(animationTimes.get(animationActive)));
-
+       TextureRegion t = animations.get(animationActive).getKeyFrame(animationTimes.get(animationActive),true);
+       System.out.println(t+"in Anim");
+        renderComponent.setCurrentFrame(t);
     }
 
     @Override

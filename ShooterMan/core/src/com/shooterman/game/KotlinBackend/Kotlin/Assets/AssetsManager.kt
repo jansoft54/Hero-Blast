@@ -1,6 +1,7 @@
 package com.shooterman.game.KotlinBackend.Kotlin.Assets
 import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.audio.Music
+import com.badlogic.gdx.audio.Sound
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
@@ -50,7 +51,9 @@ class AssetsManager private constructor(){
             manager.load("Fonts/scorefont.fnt",BitmapFont::class.java)
             manager.load("Fonts/scorefont.png",Texture::class.java)
 
-            manager.load("Music/gameover.wav", Music::class.java)
+            manager.load("Hit/playerHit.png",Texture::class.java)
+
+            manager.load("Music/gameover.wav", Sound::class.java)
           //  manager.load("Music/hitSound.wav", Music::class.java)
             manager.load("Music/inGameMusic.mp3", Music::class.java)
 

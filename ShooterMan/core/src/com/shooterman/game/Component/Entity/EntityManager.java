@@ -13,6 +13,8 @@ public final class EntityManager {
     }
 
     public void addEntityComponent(Object id, IComponent component) {
+        System.out.println(Entitys);
+
         Entitys.get(id).addComponent(component.getClass(), component);
     }
 

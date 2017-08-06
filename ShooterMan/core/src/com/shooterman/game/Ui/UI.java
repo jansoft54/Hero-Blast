@@ -6,7 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.shooterman.game.Screens.PlayScreen;
+import com.shooterman.game.MainClass.PlayScreen;
+
 
 public class UI {
     private static Button pause;
@@ -42,6 +43,7 @@ public class UI {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 pause.setBounds(25, 505, pause.getWidth(), pause.getHeight());
+                /*
                 if (ps.isactive) {
                  //   ps.music.pause();
                     ps.isactive = false;
@@ -50,6 +52,7 @@ public class UI {
                  //   ps.music.play();
                     ps.isactive = true;
                 }
+                */
                 return super.touchDown(event, x, y, pointer, button);
 
             }

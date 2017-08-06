@@ -1,16 +1,16 @@
-package com.shooterman.game.Screens;
+package com.shooterman.game.MainClass;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.shooterman.game.KotlinBackend.Kotlin.Assets.AssetsManager;
-import com.shooterman.game.MainClass.ShooterMain;
+
 
 public class LoadingScreen implements Screen {
 
-    private ShooterMain shooterMain;
 
-    public LoadingScreen(ShooterMain shooterMain) {
-        this.shooterMain = shooterMain;
+
+    public LoadingScreen() {
+
         AssetsManager.Manager.load();
     }
 
@@ -24,8 +24,7 @@ public class LoadingScreen implements Screen {
             System.out.println(AssetsManager.Manager.getManager().getProgress() * 100);
         else {
             OrthographicCamera camera = new OrthographicCamera();
-            camera.setToOrtho(false);
-            shooterMain.setScreen(new PlayScreen(shooterMain, camera));
+          ShooterMain.shootermain.setScreen(new PlayScreen( camera));
         }
     }
 

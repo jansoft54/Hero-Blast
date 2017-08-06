@@ -5,6 +5,11 @@ import com.shooterman.game.Component.IComponent.IComponent;
 
 
 public class HealthComponent implements IComponent {
+    private float health;
+
+    public HealthComponent(float health) {
+        this.health = health;
+    }
 
     @Override
     public void update(float delta) {
@@ -17,4 +22,7 @@ public class HealthComponent implements IComponent {
 
     }
 
+    public float getHealth() {
+        return health;
+    }
 }

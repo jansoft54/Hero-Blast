@@ -17,11 +17,11 @@ class BodyFactory private constructor(builder: Builder) {
             body = world.createBody(bodyDef)
             body.userData = identity
         }
-        fun setPosition(position: Vector2):Builder{
+     /*   fun setPosition(position: Vector2):Builder{
             body.position.set(position)
             return this
         }
-
+    */
         fun setGravityScale(scale: Float): Builder {
             body.gravityScale = scale
             return this

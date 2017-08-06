@@ -22,7 +22,7 @@ public final class Entity {
 
     public IComponent getComponent(Class<? extends IComponent> component) {
         IComponent foundComponent =  Components.get(component);
-        if(foundComponent == null) throw new IllegalArgumentException();
+        if(foundComponent == null) throw new IllegalArgumentException("Requested component was not found");
         else return foundComponent;
     }
 
@@ -31,11 +31,12 @@ public final class Entity {
     }
 
     public void update(float dt) {
-        Stream.of(Components).forEach(data -> data.getValue().update(dt));
+
+        Stream.of(Components).forEach(component -> component.getValue().update(dt));
     }
 
     void destroyEntity() {
-        Stream.of(Components).forEach(data -> data.getValue().clearData());
+        Stream.of(Components).forEach(component -> component.getValue().clearData());
         Components = null;
     }
 }

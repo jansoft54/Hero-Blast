@@ -5,7 +5,5 @@ package com.shooterman.game.Component.IComponent;
  */
 
 public interface IMessage {
-    void sendMessage();
-    <T>void receiveMessage(T data);
-
+    <T>void sendMessage(T data);
 }

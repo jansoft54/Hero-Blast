@@ -56,8 +56,8 @@ public class Parallaxutil {
         sb.draw(layer22.getTexture(), layer22.getX(), 0);
         sb.draw(layer3.getTexture(), layer3.getX(), 0);
         sb.draw(layer33.getTexture(), layer33.getX(), 0);
-        sb.draw(layer4.getTexture(), layer4.getX(), 0);
-        sb.draw(layer44.getTexture(), layer44.getX(), 0);
+        sb.draw(layer4.getTexture(), layer4.getX(), -12);
+        sb.draw(layer44.getTexture(), layer44.getX(), -12);
 
 
     }
