@@ -6,5 +6,5 @@ package com.shooterman.game.Observer;
 
 public interface Observer {
 
-    public  <T> void tellEvent(Observable ob,T...d);
+      <T> void tellEvent(Observable ob,T...d);
 }

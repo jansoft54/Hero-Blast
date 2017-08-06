@@ -4,11 +4,13 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ShooterMain extends Game {
     public static final int WIDTH = 1024;
     public static final int HEIGHT = 576;
     public static ShooterMain shootermain;
+    public static OrthographicCamera camera;
 
     public ShooterMain() {
         shootermain = this;
@@ -16,8 +18,8 @@ public class ShooterMain extends Game {
 
     @Override
     public void create() {
-        OrthographicCamera camera = new OrthographicCamera();
-        camera.setToOrtho(false);
+       camera = new OrthographicCamera();
+        camera.setToOrtho(false,WIDTH,HEIGHT);
         setScreen(new LoadingScreen());
     }
 

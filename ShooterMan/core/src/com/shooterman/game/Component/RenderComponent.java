@@ -1,12 +1,9 @@
 package com.shooterman.game.Component;
-
 import com.badlogic.gdx.graphics.Texture;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.shooterman.game.Component.Entity.Entity;
 import com.shooterman.game.Component.IComponent.IComponent;
-
 
 public final class RenderComponent implements IComponent {
 
@@ -25,6 +22,7 @@ public final class RenderComponent implements IComponent {
         this.spriteBatch = spriteBatch;
         this.myEntity = myEntity;
         this.physicComponent = (PhysicComponent) myEntity.getComponent(PhysicComponent.class);
+        this.currentFrame = new TextureRegion();
     }
 
     @Override

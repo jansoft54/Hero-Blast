@@ -2,7 +2,6 @@ package com.shooterman.game.MainClass;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -20,10 +19,10 @@ import com.shooterman.game.Component.InputComponent;
 import com.shooterman.game.Component.PhysicComponent;
 import com.shooterman.game.Component.RenderComponent;
 import com.shooterman.game.KotlinBackend.Kotlin.Assets.AssetsManager;
-import com.shooterman.game.MainClass.ShooterMain;
 import com.shooterman.game.Things.Parallaxutil;
 import com.shooterman.game.Things.TouchpadInput;
 import com.shooterman.game.Ui.UI;
+import static com.shooterman.game.MainClass.ShooterMain.*;
 
 import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.PhysicsController.world;
 import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Vars.*;
@@ -32,31 +31,30 @@ public class PlayScreen implements Screen {
 
 
     private OrthographicCamera bx2dcamera;//
-    private OrthographicCamera gamecam;
+    private OrthographicCamera gamsecam;
 
-    private SpriteBatch sb;
+
     private TouchpadInput touchpad;
-    private ScalingViewport stViewport;
+    private StretchViewport stViewport;
 
     private Box2DDebugRenderer box2DDebugRenderer;
     private Parallaxutil parallaxutil;
     private Stage stage;
     private EntityManager em;
+    private SpriteBatch sb;
 
+    public PlayScreen(SpriteBatch sb,OrthographicCamera camera) {
 
-    public PlayScreen(OrthographicCamera camera) {
-
-        this.gamecam = camera;
         this.bx2dcamera = new OrthographicCamera();
         this.sb = new SpriteBatch();
-        stage = new Stage(new FitViewport(ShooterMain.WIDTH, ShooterMain.HEIGHT, gamecam));
+        stage = new Stage(new StretchViewport(WIDTH, HEIGHT, camera));
         this.touchpad = new TouchpadInput(stage, this);
 
 
-        stViewport = new ScalingViewport(Scaling.fill, ShooterMain.WIDTH, ShooterMain.HEIGHT, gamecam);
-        gamecam.setToOrtho(false, ShooterMain.WIDTH, ShooterMain.HEIGHT);
+        stViewport = new StretchViewport( WIDTH, HEIGHT, camera);
+        camera.setToOrtho(false, WIDTH, HEIGHT);
         stViewport.apply();
-        bx2dcamera.setToOrtho(false, ShooterMain.WIDTH / PPM, ShooterMain.HEIGHT / PPM);
+        bx2dcamera.setToOrtho(false, WIDTH / PPM, HEIGHT / PPM);
         parallaxutil = new Parallaxutil();
 
         UI ui = new UI(this);
@@ -69,7 +67,7 @@ public class PlayScreen implements Screen {
         Entity entity = em.makeEntity("player");
         em.addEntityToWorld(entity);
         em.addEntityComponent(entity.getId(), new PhysicComponent(new Vector2(100, 100), entity));
-        em.addEntityComponent(entity.getId(), new RenderComponent(sb, entity));
+        em.addEntityComponent(entity.getId(), new RenderComponent(sb,entity));
         em.addEntityComponent(entity.getId(), new AnimationComponent(entity)
                 .addAnimation("playerFly", 1 / 5f, Animation.PlayMode.LOOP, ((TextureAtlas) AssetsManager.Manager.getManager().get("Atlases/Playeranim/player.atlas")).getRegions()));
         em.addEntityComponent(entity.getId(), new InputComponent(entity));
@@ -79,8 +77,8 @@ public class PlayScreen implements Screen {
     @Override
     public void render(float delta) {
         update(delta);
-        gamecam.update();
-        sb.setProjectionMatrix(gamecam.combined);
+        camera.update();
+        sb.setProjectionMatrix(camera.combined);
 
         sb.begin();
         parallaxutil.render(sb);

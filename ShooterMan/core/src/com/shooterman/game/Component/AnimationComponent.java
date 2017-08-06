@@ -27,8 +27,11 @@ public final class AnimationComponent implements IComponent {
         myEnity = entity;
         renderComponent = (RenderComponent) myEnity.getComponent(RenderComponent.class);
     }
-    /** This method is important for TextureRegion arrays e.g. for easily splitting up Textures
-     * The correct implementation will follow later*/
+
+    /**
+     * This method is important for TextureRegion arrays e.g. for easily splitting up Textures
+     * The correct implementation will follow later
+     */
 /*
     public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, TextureRegion... textures) {
         Animation<Texture> animationtoAdd = new Animation<>(duration, textures);
@@ -40,16 +43,14 @@ public final class AnimationComponent implements IComponent {
         return this;
     }
     */
-
     public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, Array<TextureAtlas.AtlasRegion> regions) {
 
         Array<Texture> textures = new Array<>();
         /*extracting the regions out of the Array<TextureAtlas.AtlasRegion>*/
         for (TextureAtlas.AtlasRegion atlasRegion : regions)
             textures.add(atlasRegion.getTexture());
-        /*Setting the playmode directly, because Animation only supports the playmode
-        in combination with an Array(class based) of the generic type paramter we specified above*/
-        animations.put(id, new Animation<>(duration,regions,playMode));
+        /*Setting the playmode directly, because Animation only supports the playmode in combination with an Array(class based) of the generic type paramter we specified above*/
+        animations.put(id, new Animation<>(duration, regions, playMode));
         animationActive = id;
         animationTimes.put(id, 0f);
         return this;
@@ -61,16 +62,14 @@ public final class AnimationComponent implements IComponent {
 
     @Override
     public void update(float delta) {
-            animationTimes.put(animationActive, (animationTimes.get(animationActive)) + delta);
-
-
+        animationTimes.put(animationActive, (animationTimes.get(animationActive)) + delta);
         render();
 
     }
+
     /* At the Moment the AniamtionComponent only supports LOOP Animations,Animations that only occur once are not supported yet*/
     private void render() {
-       TextureRegion t = animations.get(animationActive).getKeyFrame(animationTimes.get(animationActive),true);
-       System.out.println(t+"in Anim");
+        TextureRegion t = animations.get(animationActive).getKeyFrame(animationTimes.get(animationActive), true);
         renderComponent.setCurrentFrame(t);
     }
 

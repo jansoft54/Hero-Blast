@@ -2,6 +2,7 @@ package com.shooterman.game.MainClass;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.shooterman.game.KotlinBackend.Kotlin.Assets.AssetsManager;
 
 
@@ -24,7 +25,7 @@ public class LoadingScreen implements Screen {
             System.out.println(AssetsManager.Manager.getManager().getProgress() * 100);
         else {
             OrthographicCamera camera = new OrthographicCamera();
-          ShooterMain.shootermain.setScreen(new PlayScreen( camera));
+          ShooterMain.shootermain.setScreen(new PlayScreen( new SpriteBatch(),camera));
         }
     }
 

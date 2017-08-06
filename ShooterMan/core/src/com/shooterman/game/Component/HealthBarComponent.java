@@ -1,6 +1,7 @@
 package com.shooterman.game.Component;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.shooterman.game.Component.Entity.Entity;
 import com.shooterman.game.Component.IComponent.IComponent;
@@ -13,9 +14,10 @@ public class HealthBarComponent implements IComponent, IMessage {
     private ShapeRenderer shapeRenderer;
     private HealthComponent healthComponent;
     private PhysicComponent physicComponent;
+    private OrthographicCamera camera;
     private float fullHealth, entityHealth, red, green, w, h;
 
-    public HealthBarComponent(Entity myEnity, float w, float h, float fullHealth) {
+    public HealthBarComponent(OrthographicCamera camera, Entity myEnity, float w, float h, float fullHealth) {
         this.w = w;
         this.h = h;
         this.green = 255;
@@ -26,6 +28,7 @@ public class HealthBarComponent implements IComponent, IMessage {
         this.healthComponent = (HealthComponent) myEnity.getComponent(HealthComponent.class);
         this.physicComponent = (PhysicComponent) myEnity.getComponent(PhysicComponent.class);
         this.entityHealth = healthComponent.getHealth();
+        this.camera = camera;
     }
 
     @Override
@@ -34,14 +37,14 @@ public class HealthBarComponent implements IComponent, IMessage {
     }
 
     private void render() {
-        shapeRenderer.setProjectionMatrix();
+        shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.WHITE);
         shapeRenderer.rect(physicComponent.getPosition().x, physicComponent.getPosition().y, w, h);
         shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.rect(physicComponent.getPosition().x, physicComponent.getPosition().y, w, h);
         shapeRenderer.setColor(red / 255f, green / 255f, 0, 1);
-        shapeRenderer.rect(physicComponent.getPosition().x, physicComponent.getPosition().y, w, h);
+        shapeRenderer.rect(physicComponent.getPosition().x, physicComponent.getPosition().y, green > 0 ? w / (w / 255f) : 0, h);
     }
 
     @Override
