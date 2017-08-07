@@ -12,7 +12,7 @@ public class HealthComponent implements IComponent {
 
     @Override
     public void update(float delta) {
-    System.out.println("HI");
+    System.out.println("HIsd");
     }
 
 
