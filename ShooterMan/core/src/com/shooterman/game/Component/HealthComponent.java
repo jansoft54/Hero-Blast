@@ -3,7 +3,6 @@ package com.shooterman.game.Component;
 import com.shooterman.game.Component.IComponent.IComponent;
 
 
-
 public class HealthComponent implements IComponent {
     private float health;
 
@@ -13,7 +12,7 @@ public class HealthComponent implements IComponent {
 
     @Override
     public void update(float delta) {
-
+    System.out.println("HI");
     }
 
 
@@ -22,7 +21,7 @@ public class HealthComponent implements IComponent {
 
     }
 
-    public float getHealth() {
+    float getHealth() {
         return health;
     }
 }
