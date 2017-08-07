@@ -34,8 +34,8 @@ public class PhysicComponent implements IComponent {
         bodyBuilder.addFixture(shape, friction, restitution, density, isSensor);
     }
 
-    void setLinearVelocity(float Vx,float Vy) {
-        body.setLinearVelocity(Vx,Vy);
+    void setLinearVelocity(float Vx, float Vy) {
+        body.setLinearVelocity(Vx, Vy);
     }
 
     void applyImpulse() {
@@ -46,13 +46,12 @@ public class PhysicComponent implements IComponent {
 
     }
 
-
     Vector2 getPosition() {
         return position;
     }
 
     void setPosition(float x, float y) {
-        position.set(position.x+x, position.y+y);
+        position.set(position.x + x, position.y + y);
     }
 
     @Override

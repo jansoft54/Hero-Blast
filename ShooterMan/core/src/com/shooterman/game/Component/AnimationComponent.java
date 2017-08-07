@@ -1,18 +1,19 @@
 package com.shooterman.game.Component;
 
+import com.annimon.stream.Stream;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.shooterman.game.Component.IComponent.IComponent;
 import com.shooterman.game.Component.Entity.Entity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
+
 import java.util.HashMap;
-import java.util.Iterator;
+
 
 
 public final class AnimationComponent implements IComponent {
@@ -28,21 +29,15 @@ public final class AnimationComponent implements IComponent {
         renderComponent = (RenderComponent) myEnity.getComponent(RenderComponent.class);
     }
 
-    /**
-     * This method is important for TextureRegion arrays e.g. for easily splitting up Textures
-     * The correct implementation will follow later
-     */
-/*
-    public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, TextureRegion... textures) {
-        Animation<Texture> animationtoAdd = new Animation<>(duration, textures);
-        animationtoAdd.setPlayMode(playMode);
-
-        animations.put(id, new Animation<TextureRegion>(duration,textures,playMode));
+    public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, TextureRegion... regions) {
+        Array<TextureRegion> ArrayRegions = new Array<>();
+        Stream.of(regions).forEach(ArrayRegions::add);
+        animations.put(id, new Animation<>(duration, ArrayRegions, playMode));
         animationActive = id;
         animationTimes.put(id, 0f);
         return this;
     }
-    */
+
     public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, Array<TextureAtlas.AtlasRegion> regions) {
 
         Array<Texture> textures = new Array<>();
