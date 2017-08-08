@@ -3,6 +3,8 @@ import com.shooterman.game.Component.Entity.Entity;
 import com.shooterman.game.Component.IComponent.IComponent;
 import com.shooterman.game.Component.IComponent.IMessage;
 
+import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Vars.PPM;
+
 public class InputComponent implements IComponent,IMessage {
     private PhysicComponent physicComponent;
     private Entity myEnity;
@@ -27,7 +29,7 @@ public class InputComponent implements IComponent,IMessage {
         {
             float Vx = ((float[]) data)[0];
             float Vy = ((float[]) data)[1];
-            physicComponent.setPosition(Vx,Vy);
+            physicComponent.setLinearVelocity(Vx,Vy);
         }
         else throw new IllegalArgumentException();
     }

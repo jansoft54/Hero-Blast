@@ -30,9 +30,9 @@ public final class AnimationComponent implements IComponent {
     }
 
     public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, TextureRegion... regions) {
-        Array<TextureRegion> ArrayRegions = new Array<>();
-        Stream.of(regions).forEach(ArrayRegions::add);
-        animations.put(id, new Animation<>(duration, ArrayRegions, playMode));
+        Array<TextureRegion> arrayRegions = new Array<>();
+        Stream.of(regions).forEach(arrayRegions::add);
+        animations.put(id, new Animation<>(duration, arrayRegions, playMode));
         animationActive = id;
         animationTimes.put(id, 0f);
         return this;

@@ -38,7 +38,7 @@ public class LoadingScreen implements Screen {
             System.out.println(progress * 100);
 
         } else
-            ShooterMain.shootermain.setScreen(new PlayScreen(new SpriteBatch(), camera));
+            ShooterMain.shootermain.setScreen(new PlayScreen(new SpriteBatch()));
     }
 
     @Override

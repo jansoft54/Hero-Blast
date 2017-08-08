@@ -35,6 +35,10 @@ public final class EntityManager {
         Entity entity = Entitys.get(id);
         return entity.getComponent(componentClass);
     }
+    public boolean hasEntityComponent(Object id, Class<? extends IComponent> componentClass) {
+        Entity entity = Entitys.get(id);
+        return entity.hasComponent(componentClass);
+    }
 
     public synchronized void removeEntity(Object id) {
         final Object[] deadEntity = new Object[1];

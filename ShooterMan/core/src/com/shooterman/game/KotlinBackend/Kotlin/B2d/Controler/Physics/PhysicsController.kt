@@ -9,12 +9,19 @@ class PhysicsController{
         PhysicsController.initWorld()
     }
     companion object {
+
         @JvmField
-        val world:World = World(Vector2(0f,4.81f),true)
+        val world:World = World(Vector2(0f,-4.81f),true)
         @JvmField
         val worldContactListener:WorldContact = WorldContact()
         fun initWorld() = world.setContactListener(worldContactListener)
+        fun update( delta:Float) {
+
+            world.step(delta,6,2)
+        }
 
     }
+
+
 
 }

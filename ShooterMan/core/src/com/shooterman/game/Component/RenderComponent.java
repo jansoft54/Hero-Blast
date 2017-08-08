@@ -1,9 +1,12 @@
 package com.shooterman.game.Component;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.shooterman.game.Component.Entity.Entity;
 import com.shooterman.game.Component.IComponent.IComponent;
+
+import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Vars.PPM;
 
 public final class RenderComponent implements IComponent {
 
@@ -22,17 +25,19 @@ public final class RenderComponent implements IComponent {
         this.spriteBatch = spriteBatch;
         this.myEntity = myEntity;
         this.physicComponent = (PhysicComponent) myEntity.getComponent(PhysicComponent.class);
-        this.currentFrame = new TextureRegion();
+
     }
 
     @Override
     public void update(float delta) {
-        render();
+        if (currentFrame != null) render();
     }
 
     private void render() {
         spriteBatch.begin();
-        spriteBatch.draw(currentFrame, physicComponent.getPosition().x, physicComponent.getPosition().y);
+        float hRegionW =  currentFrame.getRegionWidth()/2;
+        float hRegionH = currentFrame.getRegionHeight()/2;
+        spriteBatch.draw(currentFrame, physicComponent.getPosition().x * PPM-hRegionW, physicComponent.getPosition().y*PPM -hRegionH);
         spriteBatch.end();
     }
 

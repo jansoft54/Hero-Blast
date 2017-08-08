@@ -2,9 +2,7 @@ package com.shooterman.game;
 
 import com.badlogic.gdx.graphics.Texture;
 
-/**
- * Created by master on 10.08.2016.
- */
+
 public class TextureHolder {
     public static final String startbutUp= "buttonTexture/startbuttonUp.png";
     public static final String startbutDown = "buttonTexture/startbuttonDown.png";

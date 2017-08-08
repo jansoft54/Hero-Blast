@@ -8,8 +8,8 @@ import com.shooterman.game.MainClass.ShooterMain;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.width = ShooterMain.WIDTH;
-		config.height = ShooterMain.HEIGHT;
+		config.width = (int) ShooterMain.WIDTH;
+		config.height = (int) ShooterMain.HEIGHT;
 		new LwjglApplication(new ShooterMain(), config);
 	}
 }

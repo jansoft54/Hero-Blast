@@ -7,8 +7,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ShooterMain extends Game {
-    public static final int WIDTH = 1024;
-    public static final int HEIGHT = 576;
+    public static final float WIDTH = 800;
+    public static final float HEIGHT = 450;
     public static ShooterMain shootermain;
     public static OrthographicCamera camera;
 

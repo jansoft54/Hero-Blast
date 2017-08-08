@@ -14,26 +14,30 @@ class BodyFactory private constructor(builder: Builder) {
             val bodyDef: BodyDef = BodyDef()
             bodyDef.position.set(position)
             bodyDef.type = type
+
             body = world.createBody(bodyDef)
             body.userData = identity
-        }
-     /*   fun setPosition(position: Vector2):Builder{
-            body.position.set(position)
-            return this
-        }
-    */
-        fun setGravityScale(scale: Float): Builder {
-            body.gravityScale = scale
-            return this
+
+
         }
 
-        fun addFixture(shape: Shape?, friction: Float = 0.2f, restitution: Float = 0f, density: Float = 0f, isSensor: Boolean = false): Builder {
+        /*   fun setPosition(position: Vector2):Builder{
+               body.position.set(position)
+               return this
+           }
+       */
+        /*  fun setGravityScale(scale: Float): Builder {
+              body.gravityScale = scale
+              return this
+          }
+  */
+        fun addFixture(shape: Shape?, friction: Float = 0.2f, restitution: Float = 0f, isSensor: Boolean = false): Builder {
             val fixtureDef = FixtureDef()
             fixtureDef.shape = shape
             fixtureDef.friction = friction
             fixtureDef.restitution = restitution
-            fixtureDef.density = density
             fixtureDef.isSensor = isSensor
+            fixtureDef.density = 2.5f
             body.createFixture(fixtureDef).userData = body.userData
 
             return this
