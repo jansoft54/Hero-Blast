@@ -1,11 +1,14 @@
 package com.shooterman.game.Observer;
 
+import com.annimon.stream.Stream;
+import com.badlogic.gdx.physics.box2d.Fixture;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class Observable {
+public class Observable<T> {
     private final List<Observer> observers = new ArrayList<>();
     private boolean FLAG_CHANGED = false;
 
@@ -14,10 +17,9 @@ public class Observable {
     }
 
     @SafeVarargs
-    protected final <T> void notifySuscribers(T... Data) {
+    protected final void notifySuscribers(T... UserData) {
         if (FLAG_CHANGED) {
-            for (Observer observer : observers)
-                observer.tellEvent(this, Data);
+            Stream.of(observers).forEach(observer ->observer.tellEvent(this,UserData));
             FLAG_CHANGED = false;
         }
     }

@@ -25,8 +25,8 @@ public class HealthBarComponent implements IComponent, IMessage {
         this.myEnity = myEnity;
         this.fullHealth = fullHealth;
         this.shapeRenderer = new ShapeRenderer();
-        this.healthComponent = (HealthComponent) myEnity.getComponent(HealthComponent.class);
-        this.physicComponent = (PhysicComponent) myEnity.getComponent(PhysicComponent.class);
+        this.healthComponent = (HealthComponent) myEnity.getComponent(HealthComponent.class,true);
+        this.physicComponent = (PhysicComponent) myEnity.getComponent(PhysicComponent.class,true);
         this.entityHealth = healthComponent.getHealth();
         this.camera = camera;
     }

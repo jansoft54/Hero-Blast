@@ -21,9 +21,9 @@ public final class Entity {
         Components.put(componentClass, component);
     }
 
-    public IComponent getComponent(Class<? extends IComponent> component) {
+    public IComponent getComponent(Class<? extends IComponent> component,boolean throwException) {
         IComponent foundComponent = Components.get(component);
-        if (foundComponent == null)
+        if (foundComponent == null && throwException)
             throw new IllegalArgumentException("Requested component was not found");
         else return foundComponent;
     }

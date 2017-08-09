@@ -9,12 +9,14 @@ import com.shooterman.game.Component.Entity.Entity;
 import com.shooterman.game.Component.IComponent.IComponent;
 import com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.BodyFactory;
 import com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.PhysicsController;
+import com.shooterman.game.Observer.Observable;
+import com.shooterman.game.Observer.Observer;
 
 import org.jetbrains.annotations.NotNull;
 
 
 
-public class PhysicComponent implements IComponent {
+public class PhysicComponent implements IComponent,Observer {
 
 
 
@@ -26,6 +28,7 @@ public class PhysicComponent implements IComponent {
         this.myEntity = myEntity;
         this.bodyBuilder = new BodyFactory.Builder(position, bodyType, world, myEntity);
         this.body = bodyBuilder.build().getBody();
+        PhysicsController.subscribe(this);
 
     }
 
@@ -46,14 +49,16 @@ public class PhysicComponent implements IComponent {
 
     }
 
+    @Override
+    public <T> void tellEvent(Observable ob, T[] d) {
+        System.out.println("Tell Event in PhysicComponent");
+    }
+
     Vector2 getPosition() {
         return body.getPosition();
     }
 
-   /* void setPosition(float x, float y) {
-        position.set(position.x + x/PPM, position.y + y/PPM);
-    }
-    */
+
 
     @Override
     public void update(float delta) {
@@ -65,4 +70,6 @@ public class PhysicComponent implements IComponent {
     public void clearData() {
 
     }
+
+
 }

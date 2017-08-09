@@ -4,13 +4,16 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+
+import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Vars.PPM;
 
 public class ShooterMain extends Game {
-    public static final float WIDTH = 800;
-    public static final float HEIGHT = 450;
+    public static final float WIDTH = 1024;
+    public static final float HEIGHT = 576;
     public static ShooterMain shootermain;
-    public static OrthographicCamera camera;
+    static OrthographicCamera camera;
+    static OrthographicCamera Bx2dCamera;
 
     public ShooterMain() {
         shootermain = this;
@@ -18,8 +21,10 @@ public class ShooterMain extends Game {
 
     @Override
     public void create() {
-       camera = new OrthographicCamera();
-        camera.setToOrtho(false,WIDTH,HEIGHT);
+        camera = new OrthographicCamera();
+        Bx2dCamera = new OrthographicCamera();
+        camera.setToOrtho(false, WIDTH, HEIGHT);
+        Bx2dCamera.setToOrtho(false, WIDTH / PPM, HEIGHT / PPM);
         setScreen(new LoadingScreen());
     }
 

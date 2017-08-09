@@ -2,23 +2,21 @@ package com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics
 
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.*
+import com.shooterman.game.Component.Entity.Entity
 
 
 class BodyFactory private constructor(builder: Builder) {
     val body = builder.body
 
-    class Builder(position: Vector2, type: BodyDef.BodyType, world: World, identity: Any) {
+    class Builder(position: Vector2, type: BodyDef.BodyType, world: World, identity: Entity) {
         var body: Body
 
         init {
             val bodyDef: BodyDef = BodyDef()
             bodyDef.position.set(position)
             bodyDef.type = type
-
             body = world.createBody(bodyDef)
-            body.userData = identity
-
-
+            body.userData = identity.id;
         }
 
         /*   fun setPosition(position: Vector2):Builder{
