@@ -14,18 +14,19 @@ import com.shooterman.game.Observer.Observer;
 
 import org.jetbrains.annotations.NotNull;
 
+import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Vars.PPM;
 
 
-public class PhysicComponent implements IComponent,Observer {
-
+public class PhysicComponent implements IComponent, Observer {
 
 
     private Body body;
     private BodyFactory.Builder bodyBuilder;
     private Entity myEntity;
 
-    public PhysicComponent(@NotNull Vector2 position, Entity myEntity , BodyDef.BodyType bodyType, World world) {
+    public PhysicComponent(@NotNull Vector2 position, Entity myEntity, BodyDef.BodyType bodyType, World world) {
         this.myEntity = myEntity;
+        position.set(position.x / PPM, position.y / PPM);
         this.bodyBuilder = new BodyFactory.Builder(position, bodyType, world, myEntity);
         this.body = bodyBuilder.build().getBody();
         PhysicsController.subscribe(this);
@@ -50,14 +51,19 @@ public class PhysicComponent implements IComponent,Observer {
     }
 
     @Override
-    public <T> void tellEvent(Observable ob, T[] d) {
-        System.out.println("Tell Event in PhysicComponent");
+    public <T> void tellEvent(Observable ob, T... d) {
+        if(myEntity.hasComponent(HealthComponent.class))
+            ((HealthComponent) myEntity.getComponent(HealthComponent.class,true)).takeDamage(10);
+        System.out.println("Tell Event in PhysicComponent my id is " + myEntity.getId());
     }
 
-    Vector2 getPosition() {
-        return body.getPosition();
+    float getPositionX() {
+        return body.getPosition().x * PPM;
     }
 
+    float getPositionY() {
+        return body.getPosition().y * PPM;
+    }
 
 
     @Override

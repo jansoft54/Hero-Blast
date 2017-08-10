@@ -12,11 +12,12 @@ class BodyFactory private constructor(builder: Builder) {
         var body: Body
 
         init {
-            val bodyDef: BodyDef = BodyDef()
-            bodyDef.position.set(position)
-            bodyDef.type = type
-            body = world.createBody(bodyDef)
-            body.userData = identity.id;
+
+            body = world.createBody(BodyDef().apply {
+                this.position.set(position)
+                this.type = type
+            })
+            body.userData = identity
         }
 
         /*   fun setPosition(position: Vector2):Builder{
@@ -30,13 +31,13 @@ class BodyFactory private constructor(builder: Builder) {
           }
   */
         fun addFixture(shape: Shape?, friction: Float = 0.2f, restitution: Float = 0f, isSensor: Boolean = false): Builder {
-            val fixtureDef = FixtureDef()
-            fixtureDef.shape = shape
-            fixtureDef.friction = friction
-            fixtureDef.restitution = restitution
-            fixtureDef.isSensor = isSensor
-            fixtureDef.density = 2.5f
-            body.createFixture(fixtureDef).userData = body.userData
+            body.createFixture(FixtureDef().apply {
+                this.shape = shape
+                this.friction = friction;
+                this.restitution = restitution
+                this.isSensor = isSensor
+                this.density = 2.5f
+            }).userData = body.userData
 
             return this
         }

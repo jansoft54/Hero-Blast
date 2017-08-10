@@ -24,7 +24,7 @@ public final class RenderComponent implements IComponent {
     public RenderComponent(SpriteBatch spriteBatch, Entity myEntity) {
         this.spriteBatch = spriteBatch;
         this.myEntity = myEntity;
-        this.physicComponent = (PhysicComponent) myEntity.getComponent(PhysicComponent.class,true);
+        this.physicComponent = (PhysicComponent) myEntity.getComponent(PhysicComponent.class, true);
 
     }
 
@@ -35,9 +35,9 @@ public final class RenderComponent implements IComponent {
 
     private void render() {
         spriteBatch.begin();
-        float hRegionW =  currentFrame.getRegionWidth()/2;
-        float hRegionH = currentFrame.getRegionHeight()/2;
-        spriteBatch.draw(currentFrame, physicComponent.getPosition().x * PPM-hRegionW, physicComponent.getPosition().y*PPM -hRegionH);
+        float hRegionW = currentFrame.getRegionWidth() / 2;
+        float hRegionH = currentFrame.getRegionHeight() / 2;
+        spriteBatch.draw(currentFrame, physicComponent.getPositionX() - hRegionW, physicComponent.getPositionY() - hRegionH);
         spriteBatch.end();
     }
 

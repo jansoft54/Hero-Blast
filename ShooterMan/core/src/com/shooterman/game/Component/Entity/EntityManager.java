@@ -16,6 +16,7 @@ public final class EntityManager {
 
     public void addEntityComponent(Object id, IComponent component) {
         Entitys.get(id).addComponent(component.getClass(), component);
+
     }
 
     public void addEntityToWorld(Entity entityToAdd) {

@@ -12,7 +12,7 @@ public class ShooterMain extends Game {
     public static final float WIDTH = 1024;
     public static final float HEIGHT = 576;
     public static ShooterMain shootermain;
-    static OrthographicCamera camera;
+    public static OrthographicCamera camera;
     static OrthographicCamera Bx2dCamera;
 
     public ShooterMain() {

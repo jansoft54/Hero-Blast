@@ -25,22 +25,16 @@ public class WorldContact extends Observable implements ContactListener {
         Fixture fixa = contact.getFixtureA();
         Fixture fixb = contact.getFixtureB();
         /*Check whether this is a valid collision*/
-        if (fixa != null && fixb != null) {
-            /*setChanged();
-            notifySuscribers(fixa, fixb);*/
+        if (fixa != null && fixb != null)
+            if (fixa.getBody().getUserData() instanceof Entity && fixb.getBody().getUserData() instanceof Entity) {
 
-
-            final Entity entityOne = ((Entity) fixa.getBody().getUserData()).getId().equals("player")
-                    ? (Entity) fixa.getBody().getUserData()
-                    : (Entity) fixb.getBody().getUserData();
-            final Entity entityTwo = ((Entity) fixb.getBody().getUserData()).getId().equals("player")
-                    ? (Entity) fixb.getBody().getUserData()
-                    : (Entity) fixa.getBody().getUserData();
-
-            Stream.of(em.getEntitys())
-                    .filter(entity -> entity.getValue().getId().equals(entityTwo.getId()))
-                    .forEach(entity -> ((PhysicComponent) entity.getValue().getComponent(PhysicComponent.class, true)).tellEvent(this, entityOne, entityTwo));
-        }
+                final Entity focusEntity = ((Entity) fixa.getBody().getUserData());
+                final Entity otherEntity = ((Entity) fixb.getBody().getUserData());
+                /*EnityManager's Keys are filtered for the collided Object Id's and then call tellEvent()*/
+                Stream.of(em.getEntitys())
+                        .filter(entry -> entry.getKey().equals(focusEntity.getId()) || entry.getKey().equals(otherEntity.getId()))
+                        .forEach(entry -> ((PhysicComponent)entry.getValue().getComponent(PhysicComponent.class,true)).tellEvent(this,focusEntity,otherEntity));
+            }
     }
 
     @Override

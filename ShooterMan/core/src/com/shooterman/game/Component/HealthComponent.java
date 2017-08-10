@@ -5,11 +5,13 @@ import com.shooterman.game.Component.IComponent.IComponent;
 
 
 public class HealthComponent implements IComponent {
-    private float health;
+    private float currenthealth;
+    private final float fullhealth;
     private Entity myEnity;
 
-    public HealthComponent(Entity myEnity,float health) {
-        this.health = health;
+    public HealthComponent(Entity myEnity,float fullhealth) {
+        this.fullhealth = fullhealth;
+        this.currenthealth = fullhealth;
         this.myEnity = myEnity;
     }
 
@@ -18,7 +20,9 @@ public class HealthComponent implements IComponent {
 
     }
     public void takeDamage(float damage){
-        health-= damage;
+        currenthealth -= damage;
+        if(myEnity.hasComponent(HealthBarComponent.class))
+            ((HealthBarComponent)myEnity.getComponent(HealthBarComponent.class,true)).sendMessage(currenthealth);
     }
 
 
@@ -27,7 +31,10 @@ public class HealthComponent implements IComponent {
 
     }
 
-    float getHealth() {
-        return health;
+    float getCurrenthealth() {
+        return currenthealth;
+    }
+    float getFullhealth() {
+        return currenthealth;
     }
 }
