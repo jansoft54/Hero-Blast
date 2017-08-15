@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.Shape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.shooterman.game.Component.Entity.Entity;
 import com.shooterman.game.Component.IComponent.IComponent;
+import com.shooterman.game.Component.IComponent.IMessage;
 import com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.BodyFactory;
 import com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.PhysicsController;
 import com.shooterman.game.Observer.Observable;
@@ -17,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Vars.PPM;
 
 
-public class PhysicComponent implements IComponent, Observer {
+public class PhysicComponent implements IComponent, IMessage {
 
 
     private Body body;
@@ -29,7 +30,7 @@ public class PhysicComponent implements IComponent, Observer {
         position.set(position.x / PPM, position.y / PPM);
         this.bodyBuilder = new BodyFactory.Builder(position, bodyType, world, myEntity);
         this.body = bodyBuilder.build().getBody();
-        PhysicsController.subscribe(this);
+
 
     }
 
@@ -49,12 +50,14 @@ public class PhysicComponent implements IComponent, Observer {
     void addForce() {
 
     }
-
+    @SafeVarargs
     @Override
-    public <T> void tellEvent(Observable ob, T... d) {
-        if(myEntity.hasComponent(HealthComponent.class))
-            ((HealthComponent) myEntity.getComponent(HealthComponent.class,true)).takeDamage(10);
-        System.out.println("Tell Event in PhysicComponent my id is " + myEntity.getId());
+    public final <T> void sendMessage(T... data) {
+        if(myEntity.hasComponent(HealthComponent.class)) {
+            System.out.println("Tell Event in PhysicComponent my id is " + myEntity.getId());
+            ((HealthComponent) myEntity.getComponent(HealthComponent.class, true)).takeDamage(10);
+        }
+
     }
 
     float getPositionX() {
@@ -76,6 +79,7 @@ public class PhysicComponent implements IComponent, Observer {
     public void clearData() {
 
     }
+
 
 
 }

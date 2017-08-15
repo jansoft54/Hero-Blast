@@ -24,8 +24,8 @@ class PhysicsController {
         @JvmStatic
         fun update(delta: Float) = world.step(delta, 6, 2)
 
-        @JvmStatic
-        fun subscribe(entity: Observer) = worldContactListener.subscribe(entity)
+        //@JvmStatic
+      //  fun subscribe(entity: Observer) = worldContactListener.subscribe(entity)
 
     }
 

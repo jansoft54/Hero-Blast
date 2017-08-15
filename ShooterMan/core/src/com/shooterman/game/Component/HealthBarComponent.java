@@ -8,32 +8,32 @@ import com.shooterman.game.Component.IComponent.IMessage;
 
 import static com.shooterman.game.MainClass.ShooterMain.*;
 
-public class HealthBarComponent implements IComponent, IMessage {
+public class HealthBarComponent extends HealthComponent implements IComponent, IMessage {
 
-    private Entity myEnity;
+
     private ShapeRenderer shapeRenderer;
-    private HealthComponent healthComponent;
     private PhysicComponent physicComponent;
-    private float fullHealth, entityHealth, red, green, w, h;
+    private float red, green, w, h;
 
-    public HealthBarComponent(Entity myEnity, float w, float h) {
+    public HealthBarComponent(Entity myEnity, float fullHealth, float w, float h) {
+        super(fullHealth);
         this.w = w;
         this.h = h;
         this.green = 255;
         this.red = 0;
-        this.myEnity = myEnity;
-
         this.shapeRenderer = new ShapeRenderer();
-        this.healthComponent = (HealthComponent) myEnity.getComponent(HealthComponent.class, true);
         this.physicComponent = (PhysicComponent) myEnity.getComponent(PhysicComponent.class, true);
-        this.entityHealth = healthComponent.getCurrenthealth();
-        this.fullHealth = healthComponent.getFullhealth();
+    }
 
+
+    @Override
+    public void takeDamage(float damage) {
+        super.takeDamage(damage);
     }
 
     @Override
     public void update(float delta) {
-        if (entityHealth < fullHealth && entityHealth > 0)
+        if (currentHealth < fullHealth && currentHealth > 0)
             render();
     }
 
@@ -45,16 +45,18 @@ public class HealthBarComponent implements IComponent, IMessage {
         shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.rect(physicComponent.getPositionX() - 46f, physicComponent.getPositionY() + 40, w, h);
         shapeRenderer.setColor(red / 255f, green / 255f, 0, 0);
-        shapeRenderer.rect(physicComponent.getPositionX() - 46f, physicComponent.getPositionY() + 40, green > 0 ? w * entityHealth / fullHealth : 0, h);
+        shapeRenderer.rect(physicComponent.getPositionX() - 46f, physicComponent.getPositionY() + 40, green > 0 ? w * currentHealth / fullHealth : 0, h);
         shapeRenderer.end();
     }
 
+    @SafeVarargs
     @Override
-    public <T> void sendMessage(T data) {
-        if (data instanceof Number) {
-            float cur = (Float) data;
-            entityHealth = cur > 0 ? cur : 0;
-            green = entityHealth > 0 ? fullHealth * entityHealth / fullHealth *1.75f: 0;
+    public final <T> void sendMessage(T... data) {
+
+        if (data[0] instanceof Number) {
+            float cur = (Float) data[0];
+            currentHealth = cur > 0 ? cur : 0;
+            green = currentHealth > 0 ? fullHealth * currentHealth / fullHealth * 1.75f : 0;
             red = 255f - green;
         } else throw new IllegalArgumentException("Health can`t be a " + data.getClass());
     }

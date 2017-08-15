@@ -26,10 +26,10 @@ public class InputComponent implements IComponent, IMessage {
     }
 
     @Override
-    public <T> void sendMessage(T data) {
-        if (data instanceof float[]) {
-            float Vx = ((float[]) data)[0];
-            float Vy = ((float[]) data)[1];
+    public <T> void sendMessage(T... data) {
+        if (data[0] instanceof float[]) {
+            float Vx = ((float[]) data[0])[0];
+            float Vy = ((float[]) data[0])[1];
             if (Math.abs(Vx) > 0f || Math.abs(Vy) > 0f)
                 physicComponent.setLinearVelocity(Vx, Vy);
         } else throw new IllegalArgumentException();

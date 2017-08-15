@@ -75,8 +75,7 @@ public class PlayScreen implements Screen {
         em.addEntityComponent(entity.getId(),new RenderComponent(sb, entity));
         em.addEntityComponent(entity.getId(),new AnimationComponent(entity).addAnimation("playerFly", 1 / 5f, Animation.PlayMode.LOOP, ((TextureAtlas) Manager.getManager().get("Atlases/Playeranim/player.atlas")).getRegions()));
         em.addEntityComponent(entity.getId(),new InputComponent(entity));
-        em.addEntityComponent(entity.getId(),new HealthComponent(entity,100));
-        em.addEntityComponent(entity.getId(),new HealthBarComponent(entity,92,10));
+        em.addEntityComponent(entity.getId(),new HealthBarComponent(entity,200,92,10));
 
         Entity entity2 = em.makeEntity("block");
         em.addEntityToWorld(entity2);
@@ -87,7 +86,7 @@ public class PlayScreen implements Screen {
         physicComponent1.addFixture(polygonShape1, 0.2f, 0f, 0f, false);
 
         em.addEntityComponent(entity2.getId(), physicComponent1);
-        System.out.println(PhysicsController.world.getBodyCount());
+
 
 
     }
@@ -105,7 +104,7 @@ public class PlayScreen implements Screen {
 
         box2DDebugRenderer.render(PhysicsController.world, Bx2dCamera.combined);
         em.update(delta);
-        touchpad.draw();
+       touchpad.draw();
 
 
     }
@@ -119,12 +118,10 @@ public class PlayScreen implements Screen {
 
 
     private void update(float dt) {
-
         InputComponent inputComponent = (InputComponent) em.getEntityComponent("player", InputComponent.class, true);
         inputComponent.sendMessage(new float[]{touchpad.getTouchpad().getKnobPercentX() * 5f, touchpad.getTouchpad().getKnobPercentY() * 5f});
 
         PhysicsController.update(dt);
-        System.out.println(Gdx.graphics.getFramesPerSecond());
     }
 
 

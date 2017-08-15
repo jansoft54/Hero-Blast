@@ -28,8 +28,8 @@ public class SoundComponent implements IComponent, IMessage {
     }
 
     @Override
-    public <T> void sendMessage(T data) {
-        if (data instanceof String) {
+    public <T> void sendMessage(T... data) {
+        if (data[0] instanceof String) {
             sounds.get(data).play();
         } else throw new IllegalArgumentException();
     }

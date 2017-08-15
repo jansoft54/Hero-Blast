@@ -3,7 +3,6 @@ package com.shooterman.game.Component.Entity;
 import com.annimon.stream.Stream;
 import com.shooterman.game.Component.IComponent.IComponent;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 
@@ -14,22 +13,21 @@ public final class Entity {
     Entity(Object id) {
         Components = new LinkedHashMap<>();
         this.id = id;
-
     }
 
     void addComponent(Class<? extends IComponent> componentClass, IComponent component) {
         Components.put(componentClass, component);
     }
 
-    public IComponent getComponent(Class<? extends IComponent> component,boolean throwException) {
+    public IComponent getComponent(Class<? extends IComponent> component, boolean throwException) {
         IComponent foundComponent = Components.get(component);
         if (foundComponent == null && throwException)
-            throw new IllegalArgumentException("Requested component was not found");
+            throw new IllegalArgumentException("Requested component was not found "+ component.getClass());
         else return foundComponent;
     }
 
     public boolean hasComponent(Class<? extends IComponent> component) {
-        return Components.get(component) != null ;
+        return Stream.of(Components.values()).filter(component::isInstance).count() > 0;
     }
 
     public Object getId() {
@@ -37,12 +35,13 @@ public final class Entity {
     }
 
     public void update(float dt) {
-
-        Stream.of(Components).forEach(component -> component.getValue().update(dt));
+        Stream.of(Components.values()).forEach(component -> component.update(dt));
     }
 
     void destroyEntity() {
-        Stream.of(Components).forEach(component -> component.getValue().clearData());
+        /*Using an unbound non-static method reference*/
+        Stream.of(Components.values()).forEach(IComponent::clearData);
         Components = null;
     }
+
 }

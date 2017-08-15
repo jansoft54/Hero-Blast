@@ -10,7 +10,7 @@ import com.shooterman.game.Component.PhysicComponent;
 import com.shooterman.game.Observer.Observable;
 
 
-public class WorldContact extends Observable implements ContactListener {
+public class WorldContact implements ContactListener {
 
 
     private EntityManager em;
@@ -33,7 +33,7 @@ public class WorldContact extends Observable implements ContactListener {
                 /*EnityManager's Keys are filtered for the collided Object Id's and then call tellEvent()*/
                 Stream.of(em.getEntitys())
                         .filter(entry -> entry.getKey().equals(focusEntity.getId()) || entry.getKey().equals(otherEntity.getId()))
-                        .forEach(entry -> ((PhysicComponent)entry.getValue().getComponent(PhysicComponent.class,true)).tellEvent(this,focusEntity,otherEntity));
+                        .forEach(entry -> ((PhysicComponent)entry.getValue().getComponent(PhysicComponent.class,true)).sendMessage(focusEntity,otherEntity));
             }
     }
 

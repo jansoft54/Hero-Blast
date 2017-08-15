@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-
+@Deprecated
 public class Observable<T> {
     private final List<Observer> observers = new ArrayList<>();
     private boolean FLAG_CHANGED = false;
