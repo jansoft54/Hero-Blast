@@ -8,3 +8,7 @@ git config --global user.name "jansoft54"
 $ git commit -m "WorldContactListener works - Helathbar Test are OK  "
  git commit -m "WorldContactListener works - Helathbar Test are OK  "
 git push
+git status
+git add .
+git commit -m "Update to Entity Oberver/Observable are now deprecated"
+git push

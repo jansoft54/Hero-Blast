@@ -8,7 +8,7 @@ import com.shooterman.game.Component.IComponent.IMessage;
 
 import static com.shooterman.game.MainClass.ShooterMain.*;
 
-public class HealthBarComponent extends HealthComponent implements IComponent, IMessage {
+public class HealthBarComponent extends HealthComponent implements IComponent {
 
 
     private ShapeRenderer shapeRenderer;
@@ -29,6 +29,8 @@ public class HealthBarComponent extends HealthComponent implements IComponent, I
     @Override
     public void takeDamage(float damage) {
         super.takeDamage(damage);
+        green = currentHealth > 0 ? fullHealth * currentHealth / fullHealth * 1.75f : 0;
+        red = 255f - green;
     }
 
     @Override
@@ -47,18 +49,6 @@ public class HealthBarComponent extends HealthComponent implements IComponent, I
         shapeRenderer.setColor(red / 255f, green / 255f, 0, 0);
         shapeRenderer.rect(physicComponent.getPositionX() - 46f, physicComponent.getPositionY() + 40, green > 0 ? w * currentHealth / fullHealth : 0, h);
         shapeRenderer.end();
-    }
-
-    @SafeVarargs
-    @Override
-    public final <T> void sendMessage(T... data) {
-
-        if (data[0] instanceof Number) {
-            float cur = (Float) data[0];
-            currentHealth = cur > 0 ? cur : 0;
-            green = currentHealth > 0 ? fullHealth * currentHealth / fullHealth * 1.75f : 0;
-            red = 255f - green;
-        } else throw new IllegalArgumentException("Health can`t be a " + data.getClass());
     }
 
     @Override

@@ -1,28 +1,36 @@
 package com.shooterman.game.Component.Entity;
 
+
 import com.annimon.stream.Stream;
 import com.shooterman.game.Component.IComponent.IComponent;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public final class Entity {
-    private LinkedHashMap<Class<? extends IComponent>, IComponent> Components;
+    private HashMap<Class<? extends IComponent>, IComponent> Components;
     private Object id;
 
     Entity(Object id) {
-        Components = new LinkedHashMap<>();
+        Components = new HashMap<>();
         this.id = id;
     }
 
-    void addComponent(Class<? extends IComponent> componentClass, IComponent component) {
+    synchronized void addComponent(Class<? extends IComponent> componentClass, IComponent component) {
         Components.put(componentClass, component);
     }
 
     public IComponent getComponent(Class<? extends IComponent> component, boolean throwException) {
-        IComponent foundComponent = Components.get(component);
+        IComponent foundComponent = null;
+        for (Map.Entry<Class<? extends IComponent>, IComponent> entry : Components.entrySet()) {
+            String nameOfStoredKey = entry.getKey().getName();
+            String nameOfRequestedKey = component.getName();
+            if (nameOfStoredKey.contains(nameOfRequestedKey.substring(30, nameOfRequestedKey.length() - 9)))
+                foundComponent = entry.getValue();
+        }
         if (foundComponent == null && throwException)
-            throw new IllegalArgumentException("Requested component was not found "+ component.getClass());
+            throw new IllegalArgumentException("Requested component was not found " + component.getClass());
         else return foundComponent;
     }
 

@@ -4,11 +4,11 @@ import com.shooterman.game.Component.IComponent.IComponent;
 
 
 public class HealthComponent implements IComponent {
-     float currentHealth;
-     final float fullHealth;
+    float currentHealth;
+    final float fullHealth;
 
 
-    public HealthComponent(float fullhealth) {
+    HealthComponent(float fullhealth) {
         this.fullHealth = fullhealth;
         this.currentHealth = fullhealth;
     }
@@ -17,7 +17,8 @@ public class HealthComponent implements IComponent {
     public void update(float delta) {
 
     }
-    public void takeDamage(float damage){
+
+    public void takeDamage(float damage) {
         currentHealth -= damage;
         System.out.print("DAMAGE");
 
