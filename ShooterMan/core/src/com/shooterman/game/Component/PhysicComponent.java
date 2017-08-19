@@ -1,5 +1,6 @@
 package com.shooterman.game.Component;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -60,18 +61,17 @@ public class PhysicComponent implements IComponent, IMessage {
 
     }
 
-    float getPositionX() {
+    public float getPositionX() {
         return body.getPosition().x * PPM;
     }
 
-    float getPositionY() {
+    public float getPositionY() {
         return body.getPosition().y * PPM;
     }
-
+    public Body getBody(){return body;}
 
     @Override
     public void update(float delta) {
-
     }
 
 

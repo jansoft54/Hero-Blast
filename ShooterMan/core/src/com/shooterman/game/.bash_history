@@ -12,3 +12,17 @@ git status
 git add .
 git commit -m "Update to Entity Oberver/Observable are now deprecated"
 git push
+git status
+git commit -m "HealthBarComponent is now returned when HealthComponent is requested" -d "Bug fix"
+git status
+git commit -"Bugfix Health"
+$ git commit -"Bugfix Health"
+ commit -"Bugfix Health"
+commit -m "Bugfix Health"
+git -commit -m "Bugfix"
+git commit -m "Bugfix Health"
+git add .
+ commit -m "Bugfix Health"
+commit -m "Bugfix Health"
+git commit -m "Bugfix Health"
+git push

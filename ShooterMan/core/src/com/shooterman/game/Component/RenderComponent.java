@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.shooterman.game.Component.Entity.Entity;
 import com.shooterman.game.Component.IComponent.IComponent;
+import com.shooterman.game.MainClass.ShooterMain;
 
 import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Vars.PPM;
 
@@ -34,6 +35,8 @@ public final class RenderComponent implements IComponent {
     }
 
     private void render() {
+        spriteBatch.setProjectionMatrix(ShooterMain.camera.combined);
+       /// spriteBatch.setColor(16/255f,78/255f,139/255f,0.8f);
         spriteBatch.begin();
         float hRegionW = currentFrame.getRegionWidth() / 2;
         float hRegionH = currentFrame.getRegionHeight() / 2;

@@ -15,6 +15,7 @@ public final class Entity {
     Entity(Object id) {
         Components = new HashMap<>();
         this.id = id;
+
     }
 
     synchronized void addComponent(Class<? extends IComponent> componentClass, IComponent component) {
@@ -43,11 +44,15 @@ public final class Entity {
     }
 
     public void update(float dt) {
-        Stream.of(Components.values()).forEach(component -> component.update(dt));
+         /* These are operations called 60 times/sec creating a Stream object for every invocation is not efficient*/
+        for (IComponent component: Components.values())
+             component.update(dt);
     }
 
+
+
     void destroyEntity() {
-        /*Using an unbound non-static method reference*/
+        /*Using an unbound non-static(instance) method reference*/
         Stream.of(Components.values()).forEach(IComponent::clearData);
         Components = null;
     }

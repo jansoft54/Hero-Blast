@@ -2,26 +2,28 @@ package com.shooterman.game.Things;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.shooterman.game.KotlinBackend.Kotlin.Assets.AssetsManager;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.shooterman.game.MainClass.PlayScreen;
+import com.shooterman.game.MainClass.ShooterMain;
 
 
 public class TouchpadInput {
-    Stage stage;
-    Skin skin;
-    Touchpad touchpad;
-    Touchpad.TouchpadStyle touchpadStyle;
-    PlayScreen ps;
+    private Stage stage;
+    private FitViewport viewport;
+    private Touchpad touchpad;
 
 
-    public TouchpadInput(Stage stage, PlayScreen ps) {
-        this.stage = stage;
-        this.ps = ps;
-        skin = new Skin();
-        touchpadStyle = new Touchpad.TouchpadStyle();
+
+    public TouchpadInput(SpriteBatch sb) {
+        this.viewport = new FitViewport(ShooterMain.WIDTH, ShooterMain.HEIGHT);
+        this.stage = new Stage(viewport, sb);
+
+        Skin skin = new Skin();
+        Touchpad.TouchpadStyle touchpadStyle = new Touchpad.TouchpadStyle();
         Texture background = AssetsManager.Manager.getManager().get("environment/togglebackground.png");
         Texture pad = AssetsManager.Manager.getManager().get("environment/toggle.png");
 
@@ -43,6 +45,11 @@ public class TouchpadInput {
         Gdx.input.setInputProcessor(stage);
 
 
+    }
+
+
+    public FitViewport getViewport() {
+        return viewport;
     }
 
 

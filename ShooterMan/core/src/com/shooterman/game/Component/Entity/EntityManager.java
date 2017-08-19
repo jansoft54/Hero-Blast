@@ -59,6 +59,8 @@ public final class EntityManager {
     }
 
     public void update(float dt) {
-        Stream.of(Entitys).forEach(entry -> entry.getValue().update(dt));
+        /* These are operations called 60 times/sec creating a Stream object for every invocation is not efficient*/
+        for (Entity entity: Entitys.values())
+            entity.update(dt);
     }
 }

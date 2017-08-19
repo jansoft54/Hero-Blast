@@ -20,16 +20,6 @@ class BodyFactory private constructor(builder: Builder) {
             body.userData = identity
         }
 
-        /*   fun setPosition(position: Vector2):Builder{
-               body.position.set(position)
-               return this
-           }
-       */
-        /*  fun setGravityScale(scale: Float): Builder {
-              body.gravityScale = scale
-              return this
-          }
-  */
         fun addFixture(shape: Shape?, friction: Float = 0.2f, restitution: Float = 0f, isSensor: Boolean = false): Builder {
             body.createFixture(FixtureDef().apply {
                 this.shape = shape
