@@ -11,6 +11,7 @@ import static com.shooterman.game.KotlinBackend.Kotlin.B2d.Controler.Physics.Var
 public class ShooterMain extends Game {
     public static final float WIDTH = 1024;
     public static final float HEIGHT = 576;
+    public static final float WORLD_WIDTH = 2000;
     public static ShooterMain shootermain;
     public static OrthographicCamera camera;
     static OrthographicCamera Bx2dCamera;

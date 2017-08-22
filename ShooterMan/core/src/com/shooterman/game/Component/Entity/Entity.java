@@ -22,7 +22,7 @@ public final class Entity {
         Components.put(componentClass, component);
     }
 
-    public IComponent getComponent(Class<? extends IComponent> component, boolean throwException) {
+    public IComponent getComponent(Class<? extends IComponent> component) {
         IComponent foundComponent = null;
         for (Map.Entry<Class<? extends IComponent>, IComponent> entry : Components.entrySet()) {
             String nameOfStoredKey = entry.getKey().getName();
@@ -30,7 +30,7 @@ public final class Entity {
             if (nameOfStoredKey.contains(nameOfRequestedKey.substring(30, nameOfRequestedKey.length() - 9)))
                 foundComponent = entry.getValue();
         }
-        if (foundComponent == null && throwException)
+        if (foundComponent == null)
             throw new IllegalArgumentException("Requested component was not found " + component.getClass());
         else return foundComponent;
     }

@@ -25,7 +25,7 @@ class WorldContact(private val em: EntityManager) : ContactListener {
                 /*EnityManager's Keys are filtered for the collided Object Id's and then call tellEvent()*/
                 Stream.of(em.entitys)
                         .filter { entry -> entry.key == focusEntity.id || entry.key == otherEntity.id }
-                        .forEach { entry -> (entry.value.getComponent(PhysicComponent::class.java, true) as PhysicComponent).sendMessage(focusEntity, otherEntity) }
+                        .forEach { entry -> (entry.value.getComponent(PhysicComponent::class.java) as PhysicComponent).sendMessage(focusEntity, otherEntity) }
             }
     }
 

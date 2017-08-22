@@ -26,7 +26,7 @@ public final class AnimationComponent implements IComponent {
 
     public AnimationComponent(Entity entity) {
         myEnity = entity;
-        renderComponent = (RenderComponent) myEnity.getComponent(RenderComponent.class,true);
+        renderComponent = (RenderComponent) myEnity.getComponent(RenderComponent.class);
     }
 
     public AnimationComponent addAnimation(String id, float duration, Animation.PlayMode playMode, TextureRegion... regions) {

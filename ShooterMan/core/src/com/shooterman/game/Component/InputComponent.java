@@ -12,7 +12,7 @@ public class InputComponent implements IComponent, IMessage {
 
     public InputComponent(Entity myEnity) {
         this.myEnity = myEnity;
-        this.physicComponent = (PhysicComponent) this.myEnity.getComponent(PhysicComponent.class,true);
+        this.physicComponent = (PhysicComponent) this.myEnity.getComponent(PhysicComponent.class);
     }
 
     @Override

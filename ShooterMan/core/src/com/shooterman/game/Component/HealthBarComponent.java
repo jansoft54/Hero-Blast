@@ -22,7 +22,7 @@ public class HealthBarComponent extends HealthComponent implements IComponent {
         this.green = 255;
         this.red = 0;
         this.shapeRenderer = new ShapeRenderer();
-        this.physicComponent = (PhysicComponent) myEnity.getComponent(PhysicComponent.class, true);
+        this.physicComponent = (PhysicComponent) myEnity.getComponent(PhysicComponent.class);
     }
 
 

@@ -14,16 +14,16 @@ public final class EntityManager {
         Entitys = new HashMap<>();
     }
 
-    public void addEntityComponent(Object id, IComponent component) {
+     void addEntityComponent(Object id, IComponent component) {
         Entitys.get(id).addComponent(component.getClass(), component);
 
     }
 
-    public void addEntityToWorld(Entity entityToAdd) {
+     void addEntityToWorld(Entity entityToAdd) {
         Entitys.put(entityToAdd.getId(), entityToAdd);
     }
 
-    public Entity makeEntity(Object id) {
+     Entity makeEntity(Object id) {
         return new Entity(id);
     }
 
@@ -35,9 +35,9 @@ public final class EntityManager {
         return Entitys;
     }
 
-    public IComponent getEntityComponent(Object id, Class<? extends IComponent> componentClass, boolean throwException) {
+    public IComponent getEntityComponent(Object id, Class<? extends IComponent> componentClass) {
         Entity entity = Entitys.get(id);
-        return entity.getComponent(componentClass, throwException);
+        return entity.getComponent(componentClass);
 
     }
 
@@ -60,7 +60,7 @@ public final class EntityManager {
 
     public void update(float dt) {
         /* These are operations called 60 times/sec creating a Stream object for every invocation is not efficient*/
-        for (Entity entity: Entitys.values())
+        for (Entity entity : Entitys.values())
             entity.update(dt);
     }
 }

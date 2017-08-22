@@ -20,7 +20,6 @@ public class HealthComponent implements IComponent {
 
     public void takeDamage(float damage) {
         currentHealth -= damage;
-        System.out.print("DAMAGE");
 
     }
 

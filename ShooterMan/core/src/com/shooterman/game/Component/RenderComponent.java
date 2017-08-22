@@ -25,7 +25,7 @@ public final class RenderComponent implements IComponent {
     public RenderComponent(SpriteBatch spriteBatch, Entity myEntity) {
         this.spriteBatch = spriteBatch;
         this.myEntity = myEntity;
-        this.physicComponent = (PhysicComponent) myEntity.getComponent(PhysicComponent.class, true);
+        this.physicComponent = (PhysicComponent) myEntity.getComponent(PhysicComponent.class);
 
     }
 

@@ -26,3 +26,7 @@ git add .
 commit -m "Bugfix Health"
 git commit -m "Bugfix Health"
 git push
+git status
+git add .
+git commit -m "parallax Fix"
+git push

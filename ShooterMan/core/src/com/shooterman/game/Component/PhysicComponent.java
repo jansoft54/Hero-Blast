@@ -28,11 +28,17 @@ public class PhysicComponent implements IComponent, IMessage {
 
     public PhysicComponent(@NotNull Vector2 position, Entity myEntity, BodyDef.BodyType bodyType, World world) {
         this.myEntity = myEntity;
-        position.set(position.x / PPM, position.y / PPM);
+
         this.bodyBuilder = new BodyFactory.Builder(position, bodyType, world, myEntity);
         this.body = bodyBuilder.build().getBody();
 
 
+    }
+
+    public PhysicComponent(Entity myEntity, BodyDef.BodyType bodyType, World world) {
+        this.myEntity = myEntity;
+        this.bodyBuilder = new BodyFactory.Builder(bodyType, world, myEntity);
+        this.body = bodyBuilder.build().getBody();
     }
 
     public PhysicComponent addFixture(Shape shape, float friction, float restitution, float density, boolean isSensor) {
@@ -51,27 +57,32 @@ public class PhysicComponent implements IComponent, IMessage {
     void addForce() {
 
     }
+
     @SafeVarargs
     @Override
     public final <T> void sendMessage(T... data) {
-        if(myEntity.hasComponent(HealthComponent.class)) {
-            System.out.println("Tell Event in PhysicComponent my id is " + myEntity.getId());
-            ((HealthComponent) myEntity.getComponent(HealthComponent.class, true)).takeDamage(10);
+        if (myEntity.hasComponent(HealthComponent.class)) {
+        //    System.out.println("Tell Event in PhysicComponent my id is " + myEntity.getId());
+            ((HealthComponent) myEntity.getComponent(HealthComponent.class)).takeDamage(10);
         }
 
     }
 
-    public float getPositionX() {
+    float getPositionX() {
         return body.getPosition().x * PPM;
     }
 
-    public float getPositionY() {
+    float getPositionY() {
         return body.getPosition().y * PPM;
     }
-    public Body getBody(){return body;}
+
+    public Body getBody() {
+        return body;
+    }
 
     @Override
     public void update(float delta) {
+
     }
 
 
@@ -79,7 +90,6 @@ public class PhysicComponent implements IComponent, IMessage {
     public void clearData() {
 
     }
-
 
 
 }

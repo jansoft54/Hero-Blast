@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 
 class AssetsManager private constructor(){
     companion object Manager {
+
         val manager: AssetManager = AssetManager()
         fun load()
         {
@@ -27,8 +28,6 @@ class AssetsManager private constructor(){
             manager.load("Atlases/enemyAnimation/dragon.atlas",TextureAtlas::class.java)
             manager.load("Atlases/enemyAnimation/dragonboss.png",Texture::class.java)
             manager.load("Atlases/enemyAnimation/dragonboss.atlas",TextureAtlas::class.java)
-            manager.load("Atlases/enemyAnimation/fireball.png",Texture::class.java)
-            manager.load("Atlases/enemyAnimation/fireball.atlas",TextureAtlas::class.java)
             manager.load("Atlases/enemyAnimation/fleder.png",Texture::class.java)
             manager.load("Atlases/enemyAnimation/fleder.atlas",TextureAtlas::class.java)
 
@@ -43,10 +42,10 @@ class AssetsManager private constructor(){
 
             manager.load("environment/fire1.png",Texture::class.java)
             manager.load("environment/heart.png",Texture::class.java)
-            manager.load("environment/hitRect.png",Texture::class.java)
-            manager.load("environment/pauseblack.png",Texture::class.java)
+            manager.load("environment/Bar.png",Texture::class.java)
             manager.load("environment/toggle.png",Texture::class.java)
             manager.load("environment/togglebackground.png",Texture::class.java)
+            manager.load("environment/playerPositionpaddle.png",Texture::class.java)
 
             manager.load("Fonts/scorefont.fnt",BitmapFont::class.java)
             manager.load("Fonts/scorefont.png",Texture::class.java)
